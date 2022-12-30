@@ -12,12 +12,23 @@ session_start();
 
 class BrandProduct extends Controller
 {
+    public function AuthLogin()
+    {
+        $admin_id = Session::get('admin_id');
+        if ($admin_id) {
+            return Redirect::to('dashboard');
+        } else {
+            return Redirect::to('admin');
+        }
+    }
     public function add_brand_product()
     {
+        $this->AuthLogin();
         return view('admin.add_brand_product');
     }
     public function all_brand_product()
     {
+
         $all_brand_product = DB::table('tbl_brand_product')->get();
         $manager_brand_product = view('admin.all_brand_product')->with('all_brand_product', $all_brand_product);
         return view('admin_layout')->with('admin.all_brand_product', $manager_brand_product);
@@ -69,5 +80,21 @@ class BrandProduct extends Controller
         DB::table('tbl_brand_product')->where('brand_id', $brand_product_id)->delete();
         Session::put('message', 'xoa danh muc thanh cong');
         return Redirect::to('all-brand-product');
+    }
+    // ------------------------ @@@ ---------------------
+    public function show_brand_home($brand_id)
+    {
+        $cate_product = DB::table('tbl_category_product')->where('category_status', '0')
+            ->orderBy('category_id', 'desc')->get();
+        $brand_product = DB::table('tbl_brand_product')->where('brand_status', '0')
+            ->orderBy('brand_id', 'desc')->get();
+        $product = DB::table('tbl_product')
+            ->join('tbl_brand_product', 'tbl_product.brand_id', '=', 'tbl_brand_product.brand_id')
+            ->where('tbl_product.brand_id', $brand_id)->get();
+
+        return view('pages.brand.show_brand_home')
+            ->with('category', $cate_product)
+            ->with('brand', $brand_product)
+            ->with('product', $product);
     }
 }

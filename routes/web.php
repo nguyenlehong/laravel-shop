@@ -24,6 +24,11 @@ use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 // front end
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/trang-chu', 'App\Http\Controllers\HomeController@index');
+// danh muc san pham
+Route::get('/danh-muc-san-pham/{category_id}', 'App\Http\Controllers\CategoryProduct@show_category_home');
+Route::get('/thuong-hieu-san-pham/{brand_id}', 'App\Http\Controllers\BrandProduct@show_brand_home');
+Route::get('/chi-tiet-san-pham/{product_id}', 'App\Http\Controllers\ProductController@details_product');
+
 
 
 // back end
@@ -61,12 +66,16 @@ Route::get('/active-brand-product/{brand_product_id}', 'App\Http\Controllers\Bra
 
 //product
 Route::get('/add-product', 'App\Http\Controllers\ProductController@add_product');
-Route::get('/edit-product/{product_id}', 'App\Http\Controllers\ProductController@edit_brand_product'); // update
-Route::get('/delete-product/{product_id}', 'App\Http\Controllers\ProductController@delete_brand_product'); // delete
-Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@update_brand_product'); // delete
+Route::get('/edit-product/{product_id}', 'App\Http\Controllers\ProductController@edit_product'); // update
+Route::get('/delete-product/{product_id}', 'App\Http\Controllers\ProductController@delete_product'); // delete
+Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@update_product'); // delete
 
-Route::get('/all-product', 'App\Http\Controllers\ProductController@all_brand_product');
-Route::post('/save-product', 'App\Http\Controllers\ProductController@save_brand_product');
+Route::get('/all-product', 'App\Http\Controllers\ProductController@all_product');
+Route::post('/save-product', 'App\Http\Controllers\ProductController@save_product');
 
-Route::get('/unactive-product/{brand_product_id}', 'App\Http\Controllers\ProductController@unactive_brand_product');
-Route::get('/active-product/{brand_product_id}', 'App\Http\Controllers\ProductController@active_brand_product');
+Route::get('/unactive-product/{product_id}', 'App\Http\Controllers\ProductController@unactive_product');
+Route::get('/active-product/{product_id}', 'App\Http\Controllers\ProductController@active_product');
+
+// cart
+Route::post('/save-cart', 'App\Http\Controllers\CartController@save_cart');
+Route::get('/show_cart', 'App\Http\Controllers\CartController@show_cart');
