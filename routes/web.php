@@ -78,4 +78,10 @@ Route::get('/active-product/{product_id}', 'App\Http\Controllers\ProductControll
 
 // cart
 Route::post('/save-cart', 'App\Http\Controllers\CartController@save_cart');
+Route::post('/update-qty', 'App\Http\Controllers\CartController@update_qty_cart');
+
 Route::get('/show_cart', 'App\Http\Controllers\CartController@show_cart');
+Route::get('/delete-to-cart/{rowId}', 'App\Http\Controllers\CartController@delete_to_cart');
+
+// check out
+Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');

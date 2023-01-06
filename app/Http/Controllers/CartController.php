@@ -43,4 +43,16 @@ class CartController extends Controller
             ->with('category', $cate_product)
             ->with('brand', $brand_product);
     }
+    public function delete_to_cart($rowId)
+    {
+        Cart::update($rowId, 0);
+        return Redirect::to('/show_cart');
+    }
+    public function update_qty_cart(Request $request)
+    {
+        $id = $request->rowId_cart;
+        $qty = $request->quantity;
+        Cart::update($id, $qty);
+        return Redirect::to('/show_cart');
+    }
 }

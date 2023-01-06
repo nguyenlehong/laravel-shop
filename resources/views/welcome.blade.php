@@ -111,7 +111,7 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="#"><i class="fa fa-user"></i>
+                                    <a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user"></i>
                                         Account</a>
                                 </li>
                                 <li>
@@ -119,15 +119,15 @@
                                         Wishlist</a>
                                 </li>
                                 <li>
-                                    <a href="checkout.html"><i class="fa fa-crosshairs"></i>
+                                    <a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i>
                                         Checkout</a>
                                 </li>
                                 <li>
-                                    <a href="cart.html"><i class="fa fa-shopping-cart"></i>
+                                    <a href="{{URL::to('/show_cart')}}"><i class="fa fa-shopping-cart"></i>
                                         Cart</a>
                                 </li>
                                 <li>
-                                    <a href="login.html"><i class="fa fa-lock"></i> Login</a>
+                                    <a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Login</a>
                                 </li>
                             </ul>
                         </div>
