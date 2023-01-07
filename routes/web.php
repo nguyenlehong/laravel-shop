@@ -85,3 +85,7 @@ Route::get('/delete-to-cart/{rowId}', 'App\Http\Controllers\CartController@delet
 
 // check out
 Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
+
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@checkout');
+
+Route::post('/add_customer', 'App\Http\Controllers\CheckoutController@add_customer');
