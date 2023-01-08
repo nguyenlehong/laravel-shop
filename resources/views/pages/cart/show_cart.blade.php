@@ -43,7 +43,7 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <form action="{{URL::to('/update-qty')}}" method="POST">
-{{ csrf_field() }}
+                        {{ csrf_field() }}
                                     <input class="cart_quantity_input" type="text" name="quantity"
                                     value="{{$v_content->qty}}">
                                     <input type="hidden" value="{{$v_content->rowId}}" name="rowId_cart">
@@ -145,7 +145,7 @@
                         <li>Total <span>$61</span></li>
                     </ul>
                     <a class="btn btn-default update" href="">Update</a>
-                    <a class="btn btn-default check_out" href="">Check Out</a>
+                    <a class="btn btn-default check_out" href="{{URL::to('/payment')}}">Check Out</a>
                 </div>
             </div>
         </div>

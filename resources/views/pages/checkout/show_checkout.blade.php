@@ -22,26 +22,26 @@
                     <div class="bill-to">
                         <p>Bill To</p>
                         <div class="form-one">
-                            <form action="{{URL::to('/save_checkout')}}" method="POST">
+                            <form action="{{URL::to('/save_checkout_customer')}}" method="POST">
                                 {{ csrf_field() }}
-                                <input type="text" name="shopping_name" placeholder=" Name">
-                                <input type="text" name="shopping_email" placeholder="Email*">
-                                <input type="text" name="shopping_address" placeholder="address">
-                                <input type="text" name="shopping_phone" placeholder="phone *">
+                                <input type="text" name="shipping_name" placeholder=" Name">
+                                <input type="text" name="shipping_email" placeholder="Email*">
+                                <input type="text" name="shipping_address" placeholder="address">
+                                <input type="text" name="shipping_phone" placeholder="phone *">
+                                <textarea 
+                                placeholder="Notes about your order, Special Notes for Delivery" 
+                                rows="16"
+                                name="shipping_note"
+                                ></textarea>
                                <input type="submit" value="GUi">
                             
                             </form>
+                         
                         </div>
                         
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="order-message">
-                        <p>Shipping Order</p>
-                        <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-                       
-                    </div>	
-                </div>					
+           				
             </div>
         </div>
         <div class="review-payment">

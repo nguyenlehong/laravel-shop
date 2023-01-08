@@ -27,6 +27,13 @@
 <!--/head-->
 
 <body>
+    <h1>
+        <?php
+            echo Session::get('customer_id');
+            echo Session::get('shipping_id');
+
+            ?>
+    </h1>
     <header id="header">
         <!--header-->
         <div class="header_top">
@@ -127,7 +134,18 @@
                                         Cart</a>
                                 </li>
                                 <li>
+                                    <?php
+                                    $customer_id = Session::get('customer_id');
+                                    if($customer_id != NULL){                                   
+                                    ?>
+                                    <a href="{{URL::to('/logout_checkout')}}"><i class="fa fa-lock"></i> Logout</a>
+                                    <?php
+                                    }else{
+                                    ?>
                                     <a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Login</a>
+                                <?php
+                                    }
+                                ?>
                                 </li>
                             </ul>
                         </div>
